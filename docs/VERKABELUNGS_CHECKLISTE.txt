@@ -1,0 +1,223 @@
+# ✅ VERKABELUNGS-CHECKLISTE - SCHRITT FÜR SCHRITT
+
+## 🎯 Ziel: AZDelivery Display korrekt anschließen
+
+**Display-Pins:** LED, SCK, SDA, A0, Reset, CS, GND, VCC
+
+---
+
+## 📋 VERKABELUNG - Schritt für Schritt:
+
+### SCHRITT 1: Stromversorgung (zuerst!)
+
+```
+Display Pin     Kabel-Farbe    Arduino Pin
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VCC         →   [ROT]      →   5V
+GND         →   [SCHWARZ]  →   GND
+```
+
+**Prüfen:** Display sollte jetzt Strom haben (evtl. leuchtet LED leicht)
+
+✅ VCC verbunden
+✅ GND verbunden
+
+---
+
+### SCHRITT 2: Backlight (Hintergrundbeleuchtung)
+
+```
+Display Pin     Kabel-Farbe    Arduino Pin
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LED         →   [GELB]     →   5V
+```
+
+**Prüfen:** Display sollte jetzt hell leuchten (blau/weiß)
+
+✅ LED verbunden
+
+---
+
+### SCHRITT 3: SPI-Kommunikation
+
+```
+Display Pin     Kabel-Farbe    Arduino Pin    Beschreibung
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCK         →   [GRÜN]     →   Pin 52      (SPI Clock)
+SDA         →   [BLAU]     →   Pin 51      (SPI Data)
+```
+
+**Wichtig:** Mega 2560 hat feste SPI-Pins!
+- Pin 52 = SCK (Clock)
+- Pin 51 = MOSI (Data)
+
+✅ SCK an Pin 52
+✅ SDA an Pin 51
+
+---
+
+### SCHRITT 4: Steuer-Pins
+
+```
+Display Pin     Kabel-Farbe    Arduino Pin    Beschreibung
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A0          →   [ORANGE]   →   Pin 47      (Data/Command)
+Reset       →   [LILA]     →   Pin 49      (Reset)
+CS          →   [WEISS]    →   Pin 48      (Chip Select)
+```
+
+**⚠️ WICHTIG:** A0 ist NICHT Analog Pin A0!
+A0 bedeutet hier "Address 0" = Data/Command Pin
+
+✅ A0 an Pin 47 (DC)
+✅ Reset an Pin 49
+✅ CS an Pin 48
+
+---
+
+## 🔍 FINALE KONTROLLE:
+
+### Vollständige Verbindungsliste:
+
+| Nr | Display Pin | → | Arduino Pin | Funktion | Status |
+|----|-------------|---|-------------|----------|--------|
+| 1  | VCC         | → | 5V          | Strom+   | [ ]    |
+| 2  | GND         | → | GND         | Masse    | [ ]    |
+| 3  | LED         | → | 5V          | Backlight| [ ]    |
+| 4  | SCK         | → | Pin 52      | SPI CLK  | [ ]    |
+| 5  | SDA         | → | Pin 51      | SPI Data | [ ]    |
+| 6  | A0          | → | Pin 47      | DC       | [ ]    |
+| 7  | Reset       | → | Pin 49      | Reset    | [ ]    |
+| 8  | CS          | → | Pin 48      | CS       | [ ]    |
+
+**Alle 8 Pins müssen angeschlossen sein!**
+
+---
+
+## 🧪 FUNKTIONS-TEST:
+
+### Test 1: Stromversorgung
+Nach Anschluss von VCC und GND:
+- Display könnte leicht leuchten
+- Keine Rauchentwicklung ✓
+
+### Test 2: Backlight
+Nach Anschluss von LED:
+- Display leuchtet hell (blau/weiß) ✓
+- Keine Texte, nur Hintergrund
+
+### Test 3: Kommunikation
+Nach Upload des Programms:
+- Display zeigt "CYGNUS-RAIL" ✓
+- Text klar lesbar
+- Keine Streifen
+
+---
+
+## ❌ HÄUFIGE FEHLER:
+
+### Fehler 1: A0 falsch angeschlossen
+```
+FALSCH: A0 (Display) → A0 (Arduino)  ❌
+RICHTIG: A0 (Display) → Pin 47       ✅
+```
+
+### Fehler 2: SPI-Pins verwechselt
+```
+FALSCH: SCK → Pin 13, SDA → Pin 11   ❌
+RICHTIG: SCK → Pin 52, SDA → Pin 51  ✅
+```
+**Mega 2560 hat andere SPI-Pins als Arduino Uno!**
+
+### Fehler 3: LED nicht angeschlossen
+```
+Symptom: Display schwarz, aber Programm läuft
+Lösung: LED → 5V anschließen
+```
+
+### Fehler 4: GND vergessen
+```
+Symptom: Merkwürdiges Verhalten, Artefakte
+Lösung: Gemeinsame Masse wichtig!
+```
+
+---
+
+## 🎨 VISUELLE HILFE:
+
+```
+DISPLAY (von oben nach unten):    ARDUINO MEGA:
+
+  [LED]  ──────────────────────→  5V
+  [SCK]  ──────────────────────→  Pin 52 (SCLK)
+  [SDA]  ──────────────────────→  Pin 51 (MOSI)
+  [A0]   ──────────────────────→  Pin 47 (nicht A0!)
+  [Reset]──────────────────────→  Pin 49
+  [CS]   ──────────────────────→  Pin 48
+  [GND]  ──────────────────────→  GND
+  [VCC]  ──────────────────────→  5V
+```
+
+---
+
+## 📸 NACH DER VERKABELUNG:
+
+1. **Fotos machen** der Verbindungen (für Fehlersuche)
+2. **Upload** des Programms
+3. **Reset** Arduino
+4. **Erwartung:**
+   - Display zeigt "CYGNUS-RAIL IR-Steuer."
+   - Dann "AZDelivery v1.2"
+   - Dann "MOTOR MODUS"
+
+---
+
+## 🆘 TROUBLESHOOTING:
+
+### Display komplett schwarz:
+→ LED an 5V? Backlight muss leuchten!
+
+### Display leuchtet, aber kein Text:
+→ Alle Pins korrekt? Besonders A0 → Pin 47
+
+### Streifen oder Artefakte:
+→ GND sicher verbunden?
+→ Kabel zu lang? (max. 20cm)
+
+### Komische Farben:
+→ Normal! invertDisplay(true) im Code aktiv
+
+### Programm startet nicht:
+→ USB-Kabel OK?
+→ Richtiger COM-Port?
+
+---
+
+## ✅ ERFOLGS-KRITERIEN:
+
+Sie wissen, dass alles korrekt ist wenn:
+
+- [ ] Display leuchtet hell (Backlight)
+- [ ] "CYGNUS-RAIL" erscheint beim Start
+- [ ] "AZDelivery v1.2" wird angezeigt
+- [ ] Text ist scharf und klar
+- [ ] Keine Streifen oder Artefakte
+- [ ] Farben korrekt (Cyan, Gelb, Grün)
+
+**Dann ist die Verkabelung perfekt!** ✨
+
+---
+
+## 🎯 QUICK-REFERENCE:
+
+**8 Verbindungen merken:**
+1. VCC → 5V
+2. GND → GND
+3. LED → 5V
+4. SCK → 52
+5. SDA → 51
+6. A0 → 47 (DC!)
+7. Reset → 49
+8. CS → 48
+
+**Fertig!** 🚀

@@ -1,0 +1,347 @@
+# LIZENZ - Cygnus-Rail Controller mit TFT-Display
+
+**Version:** 2.3b  
+**Projekt:** Cygnus-Rail Controller mit Arduino Mega 2560 und TFT-Display  
+**Autor:** Gregor  
+**Datum:** Februar 2026
+
+---
+
+## 📜 DUAL-LICENSING-MODELL
+
+Dieses Projekt steht unter einem Dual-Licensing-Modell mit zwei Lizenzoptionen:
+
+---
+
+## 1️⃣ PRIVATE LIZENZ (Kostenlos)
+
+### ✅ PRIVATE NUTZUNG - CREATIVE COMMONS BY-NC-SA 4.0
+
+Für **private, nicht-kommerzielle Nutzung** steht dieses Projekt unter der:
+
+**Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**
+
+**Vollständiger Lizenztext:** https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+---
+
+### Was ist erlaubt (KOSTENLOS):
+
+✅ **Privater Nachbau** für eigene Modellbahn-Anlage  
+✅ **Anpassungen** und Modifikationen für private Zwecke  
+✅ **Weitergabe** an Freunde und Modellbahn-Clubs (nicht-kommerziell)  
+✅ **Veröffentlichung** von Anpassungen unter gleicher Lizenz  
+✅ **Lernen** und Studieren des Codes  
+✅ **Teilen** in Modellbahn-Foren und Communities  
+
+### Was ist NICHT erlaubt (Kommerzielle Lizenz erforderlich):
+
+❌ **Verkauf** fertiger Geräte  
+❌ **Kommerzieller Vertrieb** von Bausätzen  
+❌ **Gewerbliche Dienstleistungen** (z.B. Aufbau gegen Bezahlung)  
+❌ **Kommerzieller Support** oder Service  
+❌ **Integration** in kommerzielle Produkte  
+❌ **Verwendung** in gewerblichen Modellbahn-Anlagen (gegen Entgelt)  
+
+---
+
+### Bedingungen für private Nutzung:
+
+**Attribution (BY):**
+- Nennung des Autors (Gregor)
+- Link zur Original-Quelle
+- Hinweis auf Änderungen
+
+**NonCommercial (NC):**
+- Keine kommerzielle Nutzung ohne separate Lizenz
+- "Kommerziell" = primär auf monetären Vorteil ausgerichtet
+
+**ShareAlike (SA):**
+- Abgeleitete Werke unter gleicher Lizenz
+- Modifikationen müssen geteilt werden
+
+---
+
+## 2️⃣ KOMMERZIELLE LIZENZ (Kostenpflichtig)
+
+### 💼 GEWERBLICHE NUTZUNG - KOMMERZIELLE LIZENZ ERFORDERLICH
+
+Für **gewerbliche, kommerzielle Nutzung** ist eine separate kommerzielle Lizenz erforderlich.
+
+---
+
+### Was ist mit kommerzieller Lizenz erlaubt:
+
+✅ **Fertigung und Verkauf** von Geräten  
+✅ **Vertrieb von Bausätzen**  
+✅ **Gewerblicher Aufbau-Service**  
+✅ **Integration** in kommerzielle Produkte  
+✅ **Kommerzielle Dienstleistungen** (Installation, Support)  
+✅ **Verwendung** in gewerblichen Anlagen  
+✅ **Wiederverkauf** und Distribution  
+
+---
+
+### Kommerzielle Lizenz anfragen:
+
+**Kontakt für kommerzielle Lizenzierung:**
+```
+Name:     Gregor
+E-Mail:   [Ihre E-Mail einfügen]
+Betreff:  Kommerzielle Lizenz - Cygnus-Rail Controller
+```
+
+**Lizenzmodelle:**
+1. **Einzellizenz** - Für einzelne kommerzielle Projekte
+2. **Produktlizenz** - Für Serienproduktion
+3. **OEM-Lizenz** - Für Integration in eigene Produkte
+4. **Schulungs-Lizenz** - Für kommerzielle Schulungen/Workshops
+
+**Preise:** Nach Vereinbarung, abhängig von:
+- Umfang der Nutzung
+- Stückzahl/Produktionsvolumen
+- Art der kommerziellen Verwendung
+- Dauer der Lizenz
+
+---
+
+## 🔍 DEFINITION "KOMMERZIELLE NUTZUNG"
+
+**Kommerzielle Nutzung liegt vor, wenn:**
+
+❌ Produkte/Dienstleistungen **verkauft** werden  
+❌ **Einnahmen generiert** werden (direkt oder indirekt)  
+❌ **Gewerblicher Betrieb** erfolgt  
+❌ Nutzung in **kommerziellem Kontext** (z.B. Modellbahn-Ausstellung mit Eintritt)  
+❌ **Werbezwecke** für kommerzielle Produkte  
+
+**KEINE kommerzielle Nutzung:**
+
+✅ Privater Hobbyist baut für sich selbst  
+✅ Modellbahn-Club nutzt für Club-Anlage (ohne Gewinnabsicht)  
+✅ Schule/Universität nutzt für Lehrzwecke (non-profit)  
+✅ Kostenerstattung für Material (ohne Gewinnaufschlag)  
+✅ Veröffentlichung auf privaten Websites/Blogs (ohne Werbung)  
+
+**Grenzfälle - Bitte anfragen:**
+
+⚠️ Modellbahn-Verein mit kostenpflichtigen Events  
+⚠️ YouTube-Kanal mit Werbeeinnahmen  
+⚠️ Blog mit Affiliate-Links  
+⚠️ Workshops mit Teilnahmegebühr (kostendeckend)  
+
+---
+
+## 📋 LIZENZ-ZUSAMMENFASSUNG
+
+| Nutzungsart | Lizenz | Kosten | Bedingungen |
+|-------------|--------|--------|-------------|
+| **Privater Nachbau** | CC BY-NC-SA 4.0 | Kostenlos | Namensnennung, ShareAlike |
+| **Modifikation (privat)** | CC BY-NC-SA 4.0 | Kostenlos | Namensnennung, ShareAlike |
+| **Modellbahn-Club** | CC BY-NC-SA 4.0 | Kostenlos | Non-Profit, Namensnennung |
+| **Verkauf von Geräten** | Kommerziell | Lizenzgebühr | Separate Vereinbarung |
+| **Bausatz-Vertrieb** | Kommerziell | Lizenzgebühr | Separate Vereinbarung |
+| **Aufbau-Service** | Kommerziell | Lizenzgebühr | Separate Vereinbarung |
+| **OEM-Integration** | Kommerziell | Lizenzgebühr | Separate Vereinbarung |
+
+---
+
+## 🛡️ HAFTUNGSAUSSCHLUSS
+
+**WICHTIGER HINWEIS:**
+
+Dieses Projekt wird "WIE BESEHEN" bereitgestellt, ohne jegliche Gewährleistung.
+
+**Der Autor haftet NICHT für:**
+- Schäden an Hardware (Arduino, Display, Motor, etc.)
+- Fehlfunktionen oder Ausfälle
+- Datenverlust
+- Personen- oder Sachschäden
+- Finanzielle Verluste
+- Folgeschäden jeglicher Art
+
+**Der Nutzer ist selbst verantwortlich für:**
+- Korrekte Verkabelung
+- Elektrische Sicherheit
+- Einhaltung lokaler Vorschriften
+- Verwendung auf eigenes Risiko
+
+**Besonders bei:**
+- Netzspannungen (230V) - Nur von Fachpersonal!
+- Motoren mit hoher Leistung
+- Verkabelung und Isolierung
+- Brandschutz
+
+---
+
+## 📄 ZUSÄTZLICHE BEDINGUNGEN
+
+### Patent- und Markenrechte
+
+**Marken:**
+- Die Software ist kompatibel mit RC5-basierten Modellbahn-Fernbedienungen
+- Dieses Projekt ist NICHT offiziell von Cygnus-Rail
+- Keine Verbindung zu Cygnus-Rail oder Tochtergesellschaften
+
+**Komponenten:**
+- Arduino, Adafruit, AZDelivery - Marken der jeweiligen Hersteller
+- Verwendung nur zu Referenzzwecken
+
+### Software-Bibliotheken
+
+Dieses Projekt nutzt folgende Open-Source-Bibliotheken:
+
+- **IRremote** - MIT License
+- **Adafruit GFX** - BSD License
+- **Adafruit ST7735** - BSD License
+
+Deren Lizenzen bleiben unberührt und gelten zusätzlich.
+
+### Dokumentation
+
+Die Projekt-Dokumentation (Markdown, Word-Dokumente) steht unter der gleichen Lizenz wie der Code:
+- Private Nutzung: CC BY-NC-SA 4.0
+- Kommerzielle Nutzung: Separate Lizenz erforderlich
+
+---
+
+## ✅ NAMENSNENNUNG (Attribution)
+
+Bei Verwendung unter CC BY-NC-SA 4.0 muss folgende Namensnennung erfolgen:
+
+**Kurz-Form:**
+```
+Cygnus-Rail Controller v2.3b von Gregor
+Lizenz: CC BY-NC-SA 4.0
+```
+
+**Erweiterte Form:**
+```
+Projekt:     Cygnus-Rail Controller mit TFT-Display
+Version:     2.3b
+Autor:       Gregor
+Lizenz:      Creative Commons BY-NC-SA 4.0
+URL:         [Projekt-URL einfügen]
+Änderungen:  [Ihre Änderungen beschreiben]
+```
+
+**Wo angeben:**
+- In Dokumentation
+- Auf Website/Blog-Posts
+- In YouTube-Video-Beschreibungen
+- Im Quellcode (Kommentare)
+- Bei Weitergabe an andere
+
+---
+
+## 🔄 ÄNDERUNGEN UND ABGELEITETE WERKE
+
+### Bei Modifikationen:
+
+✅ **Erlaubt:**
+- Eigene Motortypen hinzufügen
+- Andere Displays verwenden
+- Mehr Abstellgleise
+- Andere Fernbedienungen
+- Anpassung an eigene Hardware
+
+✅ **Pflicht bei Weitergabe:**
+- Gleiche Lizenz (CC BY-NC-SA 4.0)
+- Namensnennung Original-Autor
+- Hinweis auf Änderungen
+- Quellcode verfügbar machen
+
+❌ **Nicht erlaubt:**
+- Lizenz ändern
+- Kommerzielle Nutzung ohne Lizenz
+- Entfernen der Namensnennung
+
+---
+
+## ❓ HÄUFIGE FRAGEN (FAQ)
+
+### F: Darf ich das Projekt für meinen Modellbahn-Verein nachbauen?
+**A:** Ja, kostenlos unter CC BY-NC-SA 4.0, solange non-profit.
+
+### F: Darf ich Bauteile verkaufen um Kosten zu decken?
+**A:** Kostenerstattung (ohne Gewinn) ist OK. Bei Gewinnaufschlag: Kommerzielle Lizenz.
+
+### F: Darf ich YouTube-Videos mit Werbeeinnahmen machen?
+**A:** Grauzone. Bitte anfragen für kommerzielle Lizenz.
+
+### F: Darf ich angepasste Versionen veröffentlichen?
+**A:** Ja, unter gleicher Lizenz (CC BY-NC-SA 4.0) mit Namensnennung.
+
+### F: Was kostet die kommerzielle Lizenz?
+**A:** Nach Vereinbarung. Kontaktieren Sie mich für ein Angebot.
+
+### F: Darf ich auf Modellbahn-Messen ausstellen?
+**A:** Privat/Vereins-Stand: Ja. Kommerzieller Stand: Kommerzielle Lizenz.
+
+### F: Darf ich in Workshops verwenden (mit Teilnahmegebühr)?
+**A:** Non-Profit-Workshop (kostendeckend): OK. Gewerblich: Kommerzielle Lizenz.
+
+---
+
+## 📞 KONTAKT
+
+**Für Fragen zur Lizenzierung:**
+
+```
+Autor:     Gregor
+E-Mail:    [Ihre E-Mail]
+Projekt:   Cygnus-Rail Controller v2.3b
+GitHub:    [Optional: GitHub-URL]
+Website:   [Optional: Ihre Website]
+```
+
+**Reaktionszeit:**
+- Technische Fragen: 1-3 Tage
+- Kommerzielle Anfragen: 3-7 Tage
+
+---
+
+## 🎯 VERSION DIESER LIZENZ
+
+**Version:** 1.0  
+**Gültig ab:** Februar 2026  
+**Gilt für:** Cygnus-Rail Controller v2.3b und spätere Versionen
+
+**Änderungen vorbehalten.** Bei Projekt-Updates kann die Lizenz angepasst werden. Bereits gewährte Rechte bleiben bestehen.
+
+---
+
+## ✍️ UNTERSCHRIFT & BESTÄTIGUNG
+
+Durch Verwendung, Modifikation oder Weitergabe dieses Projekts erklären Sie sich mit den Bedingungen dieser Lizenz einverstanden.
+
+```
+Autor: Gregor
+Datum: Februar 2026
+Projekt: Cygnus-Rail Controller v2.3b
+```
+
+---
+
+**LIZENZ ENDET HIER**
+
+---
+
+## 📎 ANHANG: LIZENZ-TEXTE
+
+### Creative Commons BY-NC-SA 4.0 (Volltext)
+
+Der vollständige Lizenztext ist verfügbar unter:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+### Kommerzielle Lizenz-Vorlage
+
+Für kommerzielle Lizenzen wird eine individuelle Vereinbarung erstellt.
+Kontaktieren Sie den Autor für Details.
+
+---
+
+**Ende der Lizenz-Datei**
+
+Vielen Dank für die Einhaltung der Lizenzbedingungen!
+Viel Erfolg mit Ihrem Cygnus-Rail-Projekt! 🚂✨

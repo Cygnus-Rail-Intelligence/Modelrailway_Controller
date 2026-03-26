@@ -1,0 +1,185 @@
+# CHANGELOG - Version 2.3 (AZDELIVERY OPTIMIERT)
+
+## Neue Version speziell für AZDelivery ST7735 v1.2
+
+**Version 2.3 (16.02.2026)** - AZDelivery v1.2 Optimierung
+- Display gewechselt zu: AZDelivery 1.8" TFT SPI ST7735 128x160 v1.2
+- INITR_BLACKTAB Standard für AZDelivery
+- invertDisplay(true) aktiviert - AZDelivery braucht Farb-Inversion
+- SPI_CLOCK_DIV8 - schneller als DollaTek (höhere Qualität)
+- Willkommens-Text zeigt "AZDelivery v1.2"
+- Pin-Belegung Hinweise für AZDelivery (SCL=SCLK, SDA=MOSI, RES=RST, BLK=BL)
+
+**Version 2.2 (16.02.2026)** - DollaTek Spezial-Optimierung
+- Display-Typ identifiziert: DollaTek TFT 1.8" ST7735 128x160
+- INITR_BLACKTAB als Standard für DollaTek
+- Offset-Korrektur mit setColStart(0) und setRowStart(0)
+- Willkommens-Text zeigt "DollaTek OK"
+- Spezielle Anleitung mit alternativen Offset-Werten
+
+**Version 2.1 (16.02.2026)** - Bugfix Release
+**Problem:** Relais wurden nur 200ms gepulst und schalteten dann wieder ab.
+
+**Lösung:**
+- Relais halten jetzt dauerhaft nach dem Tastendruck
+- Toggle-Funktion: Erneuter Tastendruck schaltet Relais wieder AUS
+- `pulseRelay()` Funktion entfernt
+- Direkte digitalWrite() Befehle implementiert
+- Status wird im `abstellgleis[]` Array gespeichert
+
+**Code-Änderungen:**
+```cpp
+// VORHER (Puls-Modus):
+pulseRelay(RELAY_ABSTELLGLEIS_1);
+
+// NACHHER (Dauerhaft mit Toggle):
+abstellgleis[0] = !abstellgleis[0];
+digitalWrite(RELAY_ABSTELLGLEIS_1, abstellgleis[0] ? LOW : HIGH);
+```
+
+**Verhalten:**
+- Taste 1 drücken → Relais 1 AN (LOW)  → LED/Gleis eingeschaltet
+- Taste 1 erneut → Relais 1 AUS (HIGH) → LED/Gleis ausgeschaltet
+
+---
+
+### 🖥️ Problem 2: Display zeigt Streifen und flackert
+**Problem:** Display flackert, zeigt Streifen, funktioniert nur kurz nach Reset.
+
+**Lösungen implementiert:**
+
+1. **SPI-Geschwindigkeit reduziert**
+   ```cpp
+   SPI.setClockDivider(SPI_CLOCK_DIV8);  // Vorher: Standard-Speed
+   ```
+
+2. **Längere Delays nach Init**
+   ```cpp
+   delay(500);  // Vor Init
+   tft.initR(INITR_BLACKTAB);
+   delay(200);  // Nach Init
+   tft.setRotation(1);
+   delay(100);  // Nach Rotation
+   ```
+
+3. **Update-Intervall erhöht**
+   ```cpp
+   const unsigned long DISPLAY_UPDATE_INTERVAL = 500;  // Vorher: 200ms
+   ```
+
+4. **Sanfterer Screen-Clear**
+   ```cpp
+   tft.fillScreen(ST77XX_BLACK);
+   delay(10);  // Kurze Pause nach Clear
+   ```
+
+5. **Alternative Init-Optionen dokumentiert**
+   - INITR_BLACKTAB (Standard)
+   - INITR_GREENTAB (Alternative 1)
+   - INITR_REDTAB (Alternative 2)
+   - Siehe DISPLAY_TROUBLESHOOTING.txt
+
+---
+
+## Geänderte Dateien
+
+### Cygnus_Rail_Controller.ino
+- Zeile 44-48: Relais-Steuerung Variablen entfernt
+- Zeile 106-110: Automatische Relais-Abschaltung entfernt
+- Zeile 285-301: Relais direkt schalten statt Puls
+- Zeile 305-321: Relais direkt schalten statt Puls
+- Zeile 325-341: Relais direkt schalten statt Puls
+- Zeile 345-361: Relais direkt schalten statt Puls
+- Zeile 365-377: pulseRelay() Funktion entfernt
+- Zeile 89-122: setupDisplay() verbessert
+- Zeile 53: DISPLAY_UPDATE_INTERVAL erhöht auf 500ms
+- Zeile 127: delay(10) nach fillScreen() hinzugefügt
+
+---
+
+## Neue Dateien
+
+### DISPLAY_TROUBLESHOOTING.txt
+Umfassender Troubleshooting-Guide für Display-Probleme:
+- Verschiedene Init-Parameter testen
+- SPI-Geschwindigkeit anpassen
+- Verkabelung prüfen
+- Hardware-Reset implementieren
+- Stromversorgung optimieren
+- Test-Sketch zum Debuggen
+- Erfolgreiche Konfigurationen
+
+---
+
+## Testanleitung
+
+### Relais-Test (Abstellgleis-Modus)
+1. Arduino hochladen und starten
+2. Serieller Monitor öffnen (9600 Baud)
+3. Licht-Taste drücken → Display zeigt "ABSTELLGLEIS"
+4. Taste 1 drücken → Relais 1 klickt AN, LED leuchtet
+5. Taste 1 erneut → Relais 1 klickt AUS, LED aus
+6. Relais sollte jetzt im AUS-Zustand bleiben
+7. Im Display: "Gleis 1: AUS"
+8. Wiederholen für Taste 2-4
+
+### Display-Test
+1. Arduino hochladen und starten
+2. Display sollte zeigen:
+   - "CYGNUS-RAIL Controller"
+   - "Ready..."
+   - Nach 2 Sek: Hauptbildschirm
+3. Kein Flackern (max. alle 500ms Update)
+4. Keine Streifen oder Artefakte
+5. Text klar lesbar
+
+**Falls Display immer noch flackert:**
+→ Siehe DISPLAY_TROUBLESHOOTING.txt
+
+---
+
+## Bekannte Einschränkungen
+
+- Display-Update alle 500ms (reduziert für Stabilität)
+- Bei sehr schnellen Tastendrücken kann Display Status verzögert anzeigen
+- Relais sollten für Impulsbetrieb geeignet sein (nicht Dauer-24V!)
+
+---
+
+## Zukünftige Verbesserungen (Optional)
+
+- [ ] Display-Helligkeit über PWM steuerbar
+- [ ] Relais-Status im EEPROM speichern (Zustand nach Neustart)
+- [ ] Akustisches Feedback über Buzzer
+- [ ] Temperaturüberwachung TB6612
+- [ ] Stromverbrauch-Anzeige
+
+---
+
+## Versionshistorie
+
+**v2.1 (16.02.2026)** - Bugfix Release
+- Relais-Toggle implementiert (dauerhaftes Halten)
+- Display-Stabilität verbessert
+- DISPLAY_TROUBLESHOOTING.txt hinzugefügt
+
+**v2.0 (16.02.2026)** - Initial Release
+- Modus-Umschaltung (Licht-Taste)
+- 4 Abstellgleise
+- TFT Display Integration
+- 4 Motortypen
+
+**v1.0** - Original (Basis)
+- 31kHz PWM Motorsteuerung
+- IR-Fernbedienung
+- 2 Weichen-Relais
+
+---
+
+## Support
+
+Bei weiteren Problemen:
+1. Seriellen Monitor prüfen (9600 Baud)
+2. DISPLAY_TROUBLESHOOTING.txt konsultieren
+3. Verkabelung gemäß VERKABELUNG.txt prüfen
+4. Test-Sketch aus DISPLAY_TROUBLESHOOTING.txt verwenden

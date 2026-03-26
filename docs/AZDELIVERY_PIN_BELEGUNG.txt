@@ -1,0 +1,167 @@
+# 📌 KORREKTE PIN-VERBINDUNG - AZDELIVERY ST7735 v1.2
+
+## ✅ Ihr Display hat diese Pins:
+LED, SCK, SDA, A0, Reset, CS, GND, VCC
+
+---
+
+## 🔌 EXAKTE PIN-ZUORDNUNG:
+
+```
+AZDelivery Pin  →  Arduino Mega Pin  →  Funktion
+────────────────────────────────────────────────────────
+LED             →  5V                  →  Backlight (Hintergrundbeleuchtung)
+SCK             →  Pin 52              →  SPI Clock (SCLK)
+SDA             →  Pin 51              →  SPI Data (MOSI)
+A0              →  Pin 47              →  Data/Command (DC)
+Reset           →  Pin 49              →  Reset
+CS              →  Pin 48              →  Chip Select
+GND             →  GND                 →  Masse
+VCC             →  5V                  →  Stromversorgung
+```
+
+---
+
+## ⚠️ WICHTIG - A0 ist NICHT Analog-Pin!
+
+**A0** auf dem Display bedeutet **NICHT** Arduino Analog Pin A0!
+
+**A0 = Data/Command Select = DC Pin**
+
+Im Code verwenden wir:
+```cpp
+#define TFT_DC     47   // A0 Pin vom Display
+```
+
+---
+
+## 🎨 VERKABELUNGS-DIAGRAMM:
+
+```
+┌──────────────────┐
+│  AZDelivery TFT  │
+├──────────────────┤
+│ LED  ─────────────┼──→ Arduino 5V
+│ SCK  ─────────────┼──→ Arduino Pin 52 (SCLK)
+│ SDA  ─────────────┼──→ Arduino Pin 51 (MOSI)
+│ A0   ─────────────┼──→ Arduino Pin 47 (DC)
+│ Reset ────────────┼──→ Arduino Pin 49 (RST)
+│ CS   ─────────────┼──→ Arduino Pin 48 (CS)
+│ GND  ─────────────┼──→ Arduino GND
+│ VCC  ─────────────┼──→ Arduino 5V
+└──────────────────┘
+```
+
+---
+
+## 📋 SCHRITT-FÜR-SCHRITT VERKABELUNG:
+
+### 1. Stromversorgung:
+- **VCC** → Arduino **5V**
+- **GND** → Arduino **GND**
+
+### 2. SPI-Kommunikation:
+- **SCK** → Arduino **Pin 52** (SPI Clock)
+- **SDA** → Arduino **Pin 51** (SPI Data/MOSI)
+
+### 3. Display-Steuerung:
+- **A0** → Arduino **Pin 47** (Data/Command)
+- **Reset** → Arduino **Pin 49** (Reset)
+- **CS** → Arduino **Pin 48** (Chip Select)
+
+### 4. Backlight:
+- **LED** → Arduino **5V** (volle Helligkeit)
+
+---
+
+## 💡 OPTIONAL: Dimmbare Hintergrundbeleuchtung
+
+Wenn Sie die Helligkeit steuern möchten:
+
+**Statt LED → 5V:**
+- **LED** → Arduino **Pin 9** (PWM-fähig)
+
+Dann im Code (in setup()):
+```cpp
+pinMode(9, OUTPUT);
+analogWrite(9, 200);  // Helligkeit 0-255
+```
+
+---
+
+## 🔧 CODE-ÜBERPRÜFUNG:
+
+Die aktuelle .ino Datei hat bereits die richtigen Pin-Definitionen:
+
+```cpp
+#define TFT_CS     48   // CS Pin
+#define TFT_RST    49   // Reset Pin
+#define TFT_DC     47   // A0 Pin (Data/Command)
+// Pin 51 = MOSI (SDA)
+// Pin 52 = SCLK (SCK)
+```
+
+**✅ Das passt perfekt zu Ihrem Display!**
+
+---
+
+## 🧪 VERBINDUNGS-TEST:
+
+Nach dem Verkabeln:
+1. **Upload** der .ino Datei
+2. **Arduino Reset**
+3. Display sollte sofort zeigen:
+   - "CYGNUS-RAIL IR-Steuer."
+   - "AZDelivery v1.2"
+
+**Falls Display schwarz bleibt:**
+- Prüfen Sie **LED → 5V** (Backlight muss leuchten!)
+- Prüfen Sie **VCC → 5V** (Stromversorgung)
+- Prüfen Sie **GND → GND** (Masse)
+
+---
+
+## 📸 VERKABELUNGS-CHECKLISTE:
+
+Haken Sie ab beim Anschließen:
+
+- [ ] LED → 5V (Display leuchtet)
+- [ ] SCK → Pin 52
+- [ ] SDA → Pin 51
+- [ ] A0 → Pin 47 (NICHT A0 vom Arduino!)
+- [ ] Reset → Pin 49
+- [ ] CS → Pin 48
+- [ ] GND → GND
+- [ ] VCC → 5V
+
+**Alle 8 Pins müssen verbunden sein!**
+
+---
+
+## ⚡ HÄUFIGER FEHLER:
+
+**FALSCH:**
+```
+A0 vom Display → A0 vom Arduino  ❌
+```
+
+**RICHTIG:**
+```
+A0 vom Display → Pin 47 (DC)  ✅
+```
+
+Der **A0 Pin** am Display ist der **DC (Data/Command) Pin**, NICHT ein Analog-Eingang!
+
+---
+
+## 🎯 ZUSAMMENFASSUNG:
+
+Ihr AZDelivery ST7735 v1.2 Display:
+- 8 Pins: LED, SCK, SDA, A0, Reset, CS, GND, VCC
+- **A0** = DC Pin (Pin 47 im Code)
+- **LED** = Backlight (an 5V)
+- Alles andere standard SPI
+
+**Die aktuelle .ino Datei ist bereits richtig konfiguriert!**
+
+**Verkabeln → Hochladen → Reset → Fertig!** ✨

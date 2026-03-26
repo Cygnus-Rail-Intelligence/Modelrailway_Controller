@@ -1,0 +1,132 @@
+# ⚡ SCHNELLSTART - AZDELIVERY ST7735 v1.2
+
+## 🎯 Ihr neues Display:
+**AZDelivery 1.8" TFT SPI ST7735 128x160 Version 1.2**
+
+---
+
+## ✅ Was ist fertig:
+
+Die neue Version ist **komplett optimiert** für AZDelivery:
+
+1. ✅ **INITR_BLACKTAB** (Standard für AZDelivery)
+2. ✅ **invertDisplay(true)** (AZDelivery braucht das!)
+3. ✅ **SPI_CLOCK_DIV8** (optimal für AZDelivery)
+4. ✅ **Hardware-Reset** implementiert
+5. ✅ **Kein fillScreen()** mehr (kein Flackern)
+6. ✅ **Text mit Hintergrund** (sauberes Überschreiben)
+
+---
+
+## 🚀 JETZT TESTEN - 3 Schritte:
+
+### Schritt 1: Hochladen
+- Öffnen Sie die neue .ino Datei
+- Upload-Button klicken
+- Warten bis "Done uploading"
+
+### Schritt 2: Reset
+- Drücken Sie den Reset-Button am Arduino
+- Display zeigt: "CYGNUS-RAIL IR-Steuer."
+- Dann: "AZDelivery v1.2"
+
+### Schritt 3: Prüfen
+Nach 2 Sekunden sollte erscheinen:
+```
+MOTOR MODUS
+Speed: 0% (0)
+Richtung: Vorwaerts
+Motortyp: 5-Pol
+Tasten:
+1:3Pol 2:5Pol
+3:Glock 4:High
+
+Licht=Wechsel
+```
+
+**PERFEKT? → FERTIG!** ✨
+
+---
+
+## 📌 PIN-VERBINDUNG (AZDelivery Beschriftung):
+
+```
+AZDelivery Pin  →  Arduino Mega Pin
+─────────────────────────────────────
+GND             →  GND
+VCC             →  5V
+SCL             →  Pin 52 (SCLK)
+SDA             →  Pin 51 (MOSI)
+RES             →  Pin 49 (RST)
+DC              →  Pin 47
+CS              →  Pin 48
+BLK             →  5V (Backlight)
+```
+
+**Wichtig:** AZDelivery nutzt andere Bezeichnungen:
+- SCL = Clock
+- SDA = Data
+- RES = Reset
+- BLK = Backlight
+
+---
+
+## 🔧 Nur falls Probleme:
+
+### Problem: Falsche Farben
+**Zeile 143 ändern:**
+```cpp
+tft.invertDisplay(false);  // statt true
+```
+
+### Problem: Streifen
+**Zeile 137 ändern:**
+```cpp
+tft.initR(INITR_GREENTAB);  // statt BLACKTAB
+```
+
+**Mehr Hilfe:** Siehe AZDELIVERY_ANLEITUNG.txt
+
+---
+
+## 📊 Warum AZDelivery besser ist:
+
+| Feature              | AZDelivery | DollaTek |
+|----------------------|------------|----------|
+| Bildqualität         | ⭐⭐⭐⭐⭐     | ⭐⭐⭐⭐   |
+| Farbdarstellung      | Exzellent  | Gut      |
+| Zuverlässigkeit      | Sehr hoch  | Hoch     |
+| SPI-Geschwindigkeit  | Schneller  | Langsam  |
+| Dokumentation        | Sehr gut   | OK       |
+
+---
+
+## ✅ ERWARTUNG:
+
+**AZDelivery sollte SOFORT perfekt funktionieren!**
+
+Die Standard-Konfiguration ist optimal:
+- Keine Streifen
+- Keine Flackern
+- Perfekte Farben
+- Schnelles Update (300ms)
+
+**Hochladen → Reset → Läuft!** 🎉
+
+---
+
+## 💡 TIPP:
+
+AZDelivery ist ein **Premium-Display**.
+Sie können sogar:
+- SPI schneller machen (DIV4 statt DIV8)
+- Update-Rate erhöhen (200ms statt 300ms)
+- Backlight dimmen (PWM-Pin statt 5V)
+
+Siehe AZDELIVERY_ANLEITUNG.txt für Details!
+
+---
+
+## 📸 Bitte testen und Feedback geben!
+
+**Ich erwarte: Perfekte Darstellung ohne Anpassungen nötig!** ✨

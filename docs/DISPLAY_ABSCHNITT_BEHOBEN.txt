@@ -1,0 +1,146 @@
+# ✅ DISPLAY-ABSCHNITT BEHOBEN - Version 2.3b
+
+## ❌ Problem:
+Unterste Zeile "Licht=Wechsel" wurde nicht angezeigt.
+Text wurde nach "3:Glock 4:High" + Leerzeile abgeschnitten.
+
+## 🔍 Ursache:
+- Display-Höhe bei Rotation 1 (Landscape): **128 Pixel**
+- Letzte Zeile war bei Y=125 positioniert
+- Text (8 Pixel hoch) würde bis Y=133 gehen → **außerhalb des sichtbaren Bereichs!**
+
+## ✅ Lösung:
+Alle Y-Positionen **kompakter** gemacht:
+
+### Vorher → Nachher:
+
+| Element              | Alt (Y-Pos) | Neu (Y-Pos) | Gespart |
+|---------------------|-------------|-------------|---------|
+| Überschrift         | 5           | 2           | -3 px   |
+| Speed               | 30          | 24          | -6 px   |
+| Richtung            | 45          | 37          | -8 px   |
+| Motortyp            | 65          | 53          | -12 px  |
+| Tasten Zeile 1      | 85          | 71          | -14 px  |
+| Tasten Zeile 2      | 95          | 83          | -12 px  |
+| Tasten Zeile 3      | 105         | 95          | -10 px  |
+| **Licht=Wechsel**   | **125**     | **115**     | **-10 px** |
+
+**Letzte Zeile:** Y=115 + 8px (Text) = **123 Pixel** → **Passt jetzt!** ✅
+
+---
+
+## 📊 Neues Layout:
+
+```
+Y=0   ┌────────────────────────┐
+Y=2   │ MOTOR MODUS            │  ← Überschrift (Textgröße 2)
+      │                        │
+Y=24  │ Speed: 45% (120)       │  ← Gelb
+Y=37  │ Richtung: Vorwaerts    │  ← Grün
+      │                        │
+Y=53  │ Motortyp: 5-Pol        │  ← Weiß
+      │                        │
+Y=71  │ Tasten:                │  ← Magenta
+Y=83  │ 1:3Pol 2:5Pol          │
+Y=95  │ 3:Glock 4:High         │
+      │                        │
+Y=115 │ Licht=Wechsel          │  ← Gelb ✨ JETZT SICHTBAR!
+Y=128 └────────────────────────┘
+```
+
+**Alles passt jetzt innerhalb von 128 Pixel Höhe!**
+
+---
+
+## 🚀 JETZT TESTEN:
+
+1. **Hochladen** der neuen Version
+2. **Arduino Reset**
+3. **Prüfen:**
+   - Alle Zeilen sichtbar?
+   - "Licht=Wechsel" unten sichtbar? ✅
+
+---
+
+## 📐 Display-Auflösung bei Rotation 1:
+
+```
+Rotation 1 (Landscape):
+┌─────────────────────┐
+│   160 Pixel breit   │
+│                     │  128 Pixel
+│                     │  hoch
+└─────────────────────┘
+```
+
+**Text muss zwischen Y=0 und Y=120 bleiben** um sicher sichtbar zu sein!
+(128 - 8 Pixel Texthöhe = max Y=120)
+
+---
+
+## ✅ OPTIMIERUNGEN:
+
+### Was wurde gemacht:
+1. **Abstände reduziert** zwischen den Zeilen
+2. **Überschrift höher** gesetzt (Y=2 statt Y=5)
+3. **Kompakteres Layout** bei Abstellgleis-Modus
+4. **Letzte Zeile sicher** im sichtbaren Bereich
+
+### Was bleibt gleich:
+- Textgrößen (2 für Überschrift, 1 für Rest)
+- Farben (Cyan, Gelb, Grün, Magenta, Weiß, Rot)
+- Funktionalität (alles läuft wie vorher)
+- Update-Intervall (300ms)
+
+---
+
+## 💡 Falls noch Zeilen fehlen:
+
+### Option A: Rotation ändern
+Falls immer noch was abgeschnitten wird:
+
+**Zeile 146 ändern:**
+```cpp
+// AKTUELL:
+tft.setRotation(1);  // 90° Landscape
+
+// PROBIEREN:
+tft.setRotation(3);  // 270° Landscape (gedreht)
+```
+
+Bei Rotation 3 ist das Display gespiegelt, aber gleiche Auflösung.
+
+### Option B: Noch kompakter
+Falls es eng wird:
+
+**Leerzeilen entfernen** oder **Textgröße 1→0** für kleinere Schrift.
+
+---
+
+## 🎯 ERWARTETES ERGEBNIS:
+
+**ALLES sollte jetzt sichtbar sein:**
+
+```
+MOTOR MODUS           ← Sichtbar
+Speed: 0% (0)         ← Sichtbar
+Richtung: Vorwaerts   ← Sichtbar
+Motortyp: 5-Pol       ← Sichtbar
+Tasten:               ← Sichtbar
+1:3Pol 2:5Pol         ← Sichtbar
+3:Glock 4:High        ← Sichtbar
+                      ← Leerzeile
+Licht=Wechsel         ← ✨ JETZT SICHTBAR! ✨
+```
+
+**Hochladen und testen!** 🎉
+
+---
+
+## 📝 ZUSAMMENFASSUNG:
+
+**Problem:** Text bei Y=125 war außerhalb (>128px)
+**Lösung:** Alle Zeilen kompakter (Y=115 max)
+**Ergebnis:** Alles passt jetzt! ✅
+
+**Version 2.3b** behebt das Abschneiden! 🚀

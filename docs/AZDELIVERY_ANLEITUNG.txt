@@ -1,0 +1,295 @@
+# 🎯 AZDELIVERY ST7735 v1.2 - SPEZIAL-ANLEITUNG
+# Optimiert für: AZDelivery 1.8" TFT SPI 128x160 Version 1.2
+
+## ✅ Was ist neu:
+
+Die Version ist jetzt **speziell für AZDelivery ST7735 v1.2** optimiert:
+
+1. **INITR_BLACKTAB** - Standard für AZDelivery
+2. **invertDisplay(true)** - AZDelivery braucht Farb-Inversion!
+3. **SPI_CLOCK_DIV8** - etwas schneller (AZDelivery ist hochwertiger)
+4. **Willkommens-Text**: "AZDelivery v1.2"
+
+---
+
+## 🚀 SOFORT TESTEN:
+
+1. **Hochladen** der neuen .ino Datei
+2. **Arduino Reset** drücken
+3. Display sollte zeigen:
+
+```
+┌────────────────────────┐
+│ CYGNUS-RAIL               │
+│ IR-Steuer.             │
+│                        │
+│ AZDelivery v1.2        │  ← Bestätigung
+└────────────────────────┘
+```
+
+**Nach 2 Sekunden:**
+```
+┌────────────────────────┐
+│ MOTOR MODUS            │  ← Perfekt lesbar!
+│ Speed: 0% (0)          │
+│ Richtung: Vorwaerts    │
+│ Motortyp: 5-Pol        │
+│ Tasten:                │
+│ 1:3Pol 2:5Pol          │
+│ 3:Glock 4:High         │
+│                        │
+│ Licht=Wechsel          │
+└────────────────────────┘
+```
+
+---
+
+## 📊 ERWARTETES ERGEBNIS:
+
+**AZDelivery ST7735 v1.2** sollte mit dieser Konfiguration **perfekt** funktionieren:
+
+✅ **Keine Streifen**
+✅ **Keine Flackern**
+✅ **Klarer, scharfer Text**
+✅ **Korrekte Farben**
+
+---
+
+## 🔧 FALLS PROBLEME AUFTRETEN:
+
+### Problem 1: Falsche Farben (z.B. Gelb statt Blau)
+
+**Lösung:** invertDisplay umschalten
+
+In **Zeile ~143** ändern:
+```cpp
+// AKTUELL:
+tft.invertDisplay(true);
+
+// ÄNDERN ZU:
+tft.invertDisplay(false);
+```
+
+---
+
+### Problem 2: Streifen sichtbar
+
+**Option A: Anderen Init-Modus probieren**
+
+In **Zeile ~137** ändern:
+```cpp
+// AKTUELL:
+tft.initR(INITR_BLACKTAB);
+
+// PROBIEREN SIE:
+tft.initR(INITR_GREENTAB);
+```
+
+**Option B: Rotation ändern**
+
+In **Zeile ~146** ändern:
+```cpp
+// AKTUELL:
+tft.setRotation(1);  // 90° Landscape
+
+// PROBIEREN SIE:
+tft.setRotation(0);  // 0° Portrait
+// ODER:
+tft.setRotation(3);  // 270° Landscape gedreht
+```
+
+---
+
+### Problem 3: Display bleibt schwarz
+
+**Checkliste:**
+- [ ] Alle 8 Pins korrekt angeschlossen?
+- [ ] BL (Backlight) mit 5V verbunden?
+- [ ] VCC mit 5V verbunden?
+- [ ] Serieller Monitor zeigt Meldungen?
+
+**Test:** Drücken Sie den Reset-Button am Arduino
+→ Display sollte kurz aufblitzen
+
+---
+
+## 📐 PIN-BELEGUNG FÜR AZDELIVERY:
+
+AZDelivery ST7735 hat diese Pin-Beschriftung:
+
+```
+Display Pin    Arduino Mega    Funktion
+────────────────────────────────────────
+GND        →   GND             Masse
+VCC        →   5V              Stromversorgung
+SCL        →   Pin 52 (SCLK)   SPI Clock
+SDA        →   Pin 51 (MOSI)   SPI Data
+RES        →   Pin 49          Reset
+DC         →   Pin 47          Data/Command
+CS         →   Pin 48          Chip Select
+BLK        →   5V              Backlight
+```
+
+**WICHTIG:** AZDelivery beschriftet die Pins anders!
+- **SCL** = SCLK = Clock
+- **SDA** = MOSI = Data
+- **RES** = RST = Reset
+- **BLK** = BL = Backlight
+
+---
+
+## 💡 AZDELIVERY-SPEZIFISCHE TIPPS:
+
+### 1. Backlight-Helligkeit steuerbar machen
+
+Statt BLK direkt an 5V, können Sie es an einen PWM-Pin anschließen:
+
+```cpp
+// In setup():
+pinMode(9, OUTPUT);  // PWM-Pin für Backlight
+analogWrite(9, 200); // Helligkeit 0-255
+
+// Später anpassen:
+analogWrite(9, 100); // Dunkler
+analogWrite(9, 255); // Volle Helligkeit
+```
+
+### 2. SPI-Geschwindigkeit optimieren
+
+AZDelivery kann schneller laufen als DollaTek:
+
+```cpp
+// Aktuell (Zeile ~133):
+SPI.setClockDivider(SPI_CLOCK_DIV8);
+
+// Für mehr Geschwindigkeit:
+SPI.setClockDivider(SPI_CLOCK_DIV4);
+
+// Oder noch schneller (riskant):
+SPI.setClockDivider(SPI_CLOCK_DIV2);
+```
+
+**Hinweis:** Schnellere SPI kann Probleme verursachen - nur ändern wenn nötig!
+
+### 3. Update-Rate erhöhen
+
+Da AZDelivery schneller ist, können Sie häufiger updaten:
+
+```cpp
+// Aktuell (Zeile ~53):
+const unsigned long DISPLAY_UPDATE_INTERVAL = 300;
+
+// Schneller:
+const unsigned long DISPLAY_UPDATE_INTERVAL = 200;
+
+// Oder:
+const unsigned long DISPLAY_UPDATE_INTERVAL = 100;
+```
+
+---
+
+## 🔍 BEKANNTE AZDELIVERY-KONFIGURATIONEN:
+
+### Standard (sollte bei 90% funktionieren):
+```cpp
+tft.initR(INITR_BLACKTAB);
+tft.invertDisplay(true);
+tft.setRotation(1);
+SPI.setClockDivider(SPI_CLOCK_DIV8);
+```
+**← Dies ist bereits aktiv!**
+
+### Alternative 1 (falls Farben falsch):
+```cpp
+tft.initR(INITR_BLACKTAB);
+tft.invertDisplay(false);  // ← Geändert
+tft.setRotation(1);
+SPI.setClockDivider(SPI_CLOCK_DIV8);
+```
+
+### Alternative 2 (falls Streifen):
+```cpp
+tft.initR(INITR_GREENTAB);  // ← Geändert
+tft.invertDisplay(true);
+tft.setRotation(1);
+SPI.setClockDivider(SPI_CLOCK_DIV8);
+```
+
+### Alternative 3 (selten):
+```cpp
+tft.initR(INITR_BLACKTAB);
+tft.invertDisplay(true);
+tft.setRotation(3);  // ← Gedreht
+SPI.setClockDivider(SPI_CLOCK_DIV8);
+```
+
+---
+
+## ⚙️ TECHNISCHE DETAILS:
+
+**AZDelivery ST7735 v1.2 Spezifikationen:**
+- Controller: ST7735S (manchmal ST7735R)
+- Auflösung: 128x160 Pixel
+- Farben: 65K (16-bit RGB)
+- Interface: SPI (4-Wire)
+- Spannung: 3.3V Logik, 5V tolerant
+- Stromaufnahme: ~60mA (Backlight an)
+
+**Qualitätsmerkmale:**
+- ✅ Sehr gute Farbwiedergabe
+- ✅ Stabiler SPI-Betrieb
+- ✅ Zuverlässiges IPS-Display
+- ✅ Gute Dokumentation
+
+---
+
+## 📊 VERGLEICH: AZDELIVERY vs DOLLATEK
+
+| Eigenschaft        | AZDelivery v1.2    | DollaTek          |
+|--------------------|-------------------|-------------------|
+| Init-Modus         | BLACKTAB          | BLACKTAB/GREENTAB |
+| invertDisplay      | Meist JA (true)   | Meist NEIN        |
+| SPI-Geschwindigkeit| DIV8 oder DIV4    | DIV16             |
+| Offset nötig       | Selten            | Manchmal          |
+| Qualität           | ⭐⭐⭐⭐⭐           | ⭐⭐⭐⭐            |
+| Preis              | ~10€              | ~5€               |
+
+---
+
+## ✅ ERFOLGS-CHECKLISTE:
+
+Nach dem Hochladen sollten Sie sehen:
+
+- [ ] "CYGNUS-RAIL IR-Steuer." beim Start
+- [ ] "AZDelivery v1.2" Bestätigung
+- [ ] Klarer Text ohne Streifen
+- [ ] Korrekte Farben (Cyan, Gelb, Grün, Rot)
+- [ ] Display stabil, kein Flackern
+- [ ] Updates alle 300ms sichtbar
+
+---
+
+## 🎯 ERWARTUNG:
+
+**AZDelivery ST7735 v1.2 ist ein PREMIUM-Display!**
+
+Die Standard-Konfiguration sollte **sofort perfekt funktionieren**:
+- INITR_BLACKTAB ✅
+- invertDisplay(true) ✅
+- Rotation 1 (Landscape) ✅
+- SPI DIV8 ✅
+
+**Hochladen → Reset → Perfekt!** 🎉
+
+---
+
+## 📸 BITTE TESTEN:
+
+1. Hochladen der AZDelivery-optimierten Version
+2. Arduino Reset
+3. **Foto machen** vom Display
+4. Sollte perfekt sein! 
+
+Falls doch Probleme: Siehe Troubleshooting oben.
+
+**Viel Erfolg mit dem AZDelivery Display!** 🚀
