@@ -75,7 +75,10 @@ Dieses Projekt realisiert eine vollständige IR-Fernsteuerung für Cygnus-Rail M
 | Netzteile | 9V/1A + 12-24V | Stromversorgung | 20€ |
 | **Gesamt** | | | **~85€** |
 
-Benötigt wird zusätzlich die Maerklin Infrarot Fernbedienung mit der Artikelnummer 00748 
+Kompatibel mit Infrarot-Fernbedienungen (z. B. Märklin* 00748)
+
+* Märklin ist eine eingetragene Marke der Gebr. Märklin & Cie. GmbH.
+Dieses Projekt steht in keiner Verbindung zu Märklin.
 ---
 
 ## 🚀 Quick Start
@@ -345,6 +348,13 @@ Wenn Ihnen dieses Projekt gefällt, geben Sie ihm einen Stern! ⭐
 **Projekt-Status:** ✅ Produktionsreif  
 **Letzte Tests:** Februar 2026  
 **Stabilität:** Hoch
+
+---
+
+## ⚠️ Haftungsausschluss
+
+Die Nutzung dieses Projekts erfolgt auf eigene Gefahr.
+Der Autor übernimmt keine Haftung für Schäden an Hardware, Anlagen oder Personen.
 
 ---
 
