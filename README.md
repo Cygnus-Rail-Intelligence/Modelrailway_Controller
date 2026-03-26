@@ -1,6 +1,6 @@
 # 🚂 Cygnus-Rail Controller mit TFT-Display
 
-**Professionelle Arduino-basierte Steuerung für Cygnus-Rail Modellbahnen mit TFT-Display**
+**Arduino-basierte Steuerung für Analoge N und Z Modellbahnen mit TFT-Display**
 
 Video unter: [![Demo](https://img.youtube.com/vi/od9ymYdIktI/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
