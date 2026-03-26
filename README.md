@@ -358,6 +358,6 @@ Der Autor übernimmt keine Haftung für Schäden an Hardware, Anlagen oder Perso
 
 ---
 
-**Viel Erfolg mit Ihrer Cygnus-Rail-Steuerung!** 🚂✨
+**Viel Erfolg mit dem Cygnus-Rail Controller!** 🚂✨
 
 Made with ❤️ for the model railway community
