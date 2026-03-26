@@ -345,7 +345,7 @@ Wenn Ihnen dieses Projekt gefällt, geben Sie ihm einen Stern! ⭐
 ![Last Commit](https://img.shields.io/badge/last%20commit-Februar%202026-blue.svg)
 ![Downloads](https://img.shields.io/github/downloads/[IhrBenutzername]/Cygnus-Rail-Intelligence/total.svg)
 
-**Projekt-Status:** ✅ Produktionsreif  
+**Projekt-Status:** ✅  
 **Letzte Tests:** Februar 2026  
 **Stabilität:** Hoch
 
