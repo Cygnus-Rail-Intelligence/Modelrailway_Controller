@@ -17,8 +17,8 @@ Dieses Projekt realisiert eine vollständige IR-Fernsteuerung für Cygnus-Rail M
 
 - 🎛️ **4 Motortypen** mit optimierten PWM-Kennlinien (3-Pol, 5-Pol, Glockenanker, Hochleistung)
 - 🖥️ **1.8" Farb-TFT-Display** (128x160) mit flackerfreier Anzeige
-- 📡 **IR-Fernbedienung** (RC5-Protokoll-Protokoll)
-- 🔀 **4 Abstellgleise** mit individueller Relais-Steuerung
+- 📡 **IR-Fernbedienung** (RC5-Protokoll)
+- 🔀 **4 Abstellgleise** mit individueller Relais-Steuerung / Alternativ Weichensteuerung
 - ⚡ **31kHz PWM** für laufruhigen Motorbetrieb
 - 🔄 **2 Betriebsmodi** (Motortyp-Auswahl / Abstellgleis-Steuerung)
 - 📊 **Echtzeit-Statusanzeige** mit Farb-Codierung
@@ -280,7 +280,7 @@ Dieses Projekt steht unter **Dual-Lizenz**:
 ### 💼 Kommerzielle Nutzung (Lizenzgebühr)
 Für Verkauf, Bausätze, gewerbliche Services:
 - Separate kommerzielle Lizenz erforderlich
-- Kontakt: [Ihre E-Mail]
+- Kontakt: gregor.adis@me.com
 
 **Details:** [LICENSE.txt](LICENSE.txt)
 
@@ -305,14 +305,14 @@ Für Verkauf, Bausätze, gewerbliche Services:
 
 ## 📞 Kontakt & Support
 
-**Autor:** Gregor  
-**E-Mail:** [Ihre E-Mail]  
-**GitHub:** https://github.com/[IhrBenutzername]/Cygnus-Rail-Intelligence
+**Autor:** Gregor Adis
+**E-Mail:** gregor.adis@me.com
+**GitHub:** https://github.com/Cygnus-Rail-Intelligence/Modelrailway_Controller
 
 **Bei Fragen:**
 - GitHub Issues für Bug-Reports
 - Discussions für Fragen
-- E-Mail für kommerzielle Anfragen
+- Sendet Sie gerne eine E-Mail für kommerzielle Anfragen
 
 ---
 
