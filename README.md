@@ -70,10 +70,10 @@ Dieses Projekt realisiert eine vollständige IR-Fernsteuerung für Cygnus-Rail M
 | Motortreiber | TB6612FNG | PWM-Motorsteuerung | 8€ |
 | IR-Empfänger | TSOP38238 | RC5-Empfang | 2€ |
 | Relais | 4x 5V Relais-Module | Abstellgleis-Schaltung | 8€ |
-| Fernbedienung | Cygnus-Rail IR-FB | Bedienung | vorhanden |
 | Netzteile | 9V/1A + 12-24V | Stromversorgung | 20€ |
 | **Gesamt** | | | **~85€** |
 
+Benötigt wird zusätzlich die Maerklin Infrarot Fernbedienung mit der Artikelnummer 00748 
 ---
 
 ## 🚀 Quick Start
@@ -278,7 +278,6 @@ Dieses Projekt steht unter **Dual-Lizenz**:
 - **Keine** kommerzielle Nutzung
 
 ### 💼 Kommerzielle Nutzung (Lizenzgebühr)
-Für Verkauf, Bausätze, gewerbliche Services:
 - Separate kommerzielle Lizenz erforderlich
 - Kontakt: gregor.adis@me.com
 
@@ -312,7 +311,7 @@ Für Verkauf, Bausätze, gewerbliche Services:
 **Bei Fragen:**
 - GitHub Issues für Bug-Reports
 - Discussions für Fragen
-- Sendet Sie gerne eine E-Mail für kommerzielle Anfragen
+
 
 ---
 
