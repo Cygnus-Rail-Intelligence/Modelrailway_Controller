@@ -2,7 +2,7 @@
 
 **Arduino-basierte Steuerung für Analoge N und Z Modellbahnen mit TFT-Display**
 
-Video unter: [![Demo](https://img.youtube.com/vi/od9ymYdIktI/maxresdefault.jpg)](https://www.youtube.com/watch?v=od9ymYdIktI)
+Videolink per klick auf das Bild: [![Demo](https://img.youtube.com/vi/od9ymYdIktI/maxresdefault.jpg)](https://www.youtube.com/watch?v=od9ymYdIktI)
 
 ![Version](https://img.shields.io/badge/version-2.3b-blue.svg)
 ![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-green.svg)
