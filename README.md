@@ -6,7 +6,7 @@ Videolink per klick auf das Bild: [![Demo](https://img.youtube.com/vi/od9ymYdIkt
 
 ![Version](https://img.shields.io/badge/version-2.3b-blue.svg)
 ![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-green.svg)
-![Arduino](https://img.shields.io/badge/Arduino-Mega%202560-00979D.svg)
+![Platform](https://img.shields.io/badge/platform-AVR%20ATmega2560-00979D.svg)
 ![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)
 
 ---
