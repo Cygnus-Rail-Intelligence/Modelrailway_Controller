@@ -48,7 +48,7 @@ Für **private, nicht-kommerzielle Nutzung** steht dieses Projekt unter der:
 ### Bedingungen für private Nutzung:
 
 **Attribution (BY):**
-- Nennung des Autors (Gregor)
+- Gregor Adis
 - Link zur Original-Quelle
 - Hinweis auf Änderungen
 
@@ -86,8 +86,8 @@ Für **gewerbliche, kommerzielle Nutzung** ist eine separate kommerzielle Lizenz
 
 **Kontakt für kommerzielle Lizenzierung:**
 ```
-Name:     Gregor
-E-Mail:   [Ihre E-Mail einfügen]
+Name:     Gregor Adis
+E-Mail:   gregor.adis@me.com
 Betreff:  Kommerzielle Lizenz - Cygnus-Rail Controller
 ```
 
