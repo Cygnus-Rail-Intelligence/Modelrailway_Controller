@@ -221,7 +221,7 @@ Projekt:     Cygnus-Rail Controller mit TFT-Display
 Version:     2.3b
 Autor:       Gregor
 Lizenz:      Creative Commons BY-NC-SA 4.0
-URL:         [Projekt-URL einfügen]
+URL:         https://github.com/Cygnus-Rail-Intelligence/Modelrailway_Controller
 Änderungen:  [Ihre Änderungen beschreiben]
 ```
 
@@ -289,15 +289,13 @@ URL:         [Projekt-URL einfügen]
 
 ```
 Autor:     Gregor
-E-Mail:    [Ihre E-Mail]
+E-Mail:    gregor.adis@me.com
 Projekt:   Cygnus-Rail Controller v2.3b
-GitHub:    [Optional: GitHub-URL]
-Website:   [Optional: Ihre Website]
 ```
 
 **Reaktionszeit:**
-- Technische Fragen: 1-3 Tage
-- Kommerzielle Anfragen: 3-7 Tage
+- Technische Fragen: 5-10 Tage
+- Kommerzielle Anfragen: 5-10 Tage
 
 ---
 
